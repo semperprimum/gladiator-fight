@@ -12,8 +12,10 @@ const nameInput1 = document.getElementById("input-name-player1");
 const nameInput2 = document.getElementById("input-name-player2");
 const nextActionButton = document.getElementById("next-action");
 const action = document.getElementById("action");
-const player1HealthPar = document.getElementById("health-bar-1");
-const player2HealthPar = document.getElementById("health-bar-2");
+const player1HealthBar = document.getElementById("health-bar-1");
+const player2HealthBar = document.getElementById("health-bar-2");
+const player1Model = document.getElementById("char1");
+const player2Model = document.getElementById("char2");
 
 // State
 let isGameOver = false;
@@ -201,10 +203,14 @@ function calculateMove() {
           player2Stats.name
         }`
       );
-      player2HealthPar.style.width = calculatePercentage(
+      player2HealthBar.style.width = calculatePercentage(
         player2.health,
         player2Stats.maxHealth
       );
+      player1Model.classList.add("move-right");
+      setTimeout(() => {
+        player1Model.classList.remove("move-right");
+      }, 500);
     } else if (currentPlayer === player2) {
       player1.health -= damage;
       if (player1.health <= 0) {
@@ -215,10 +221,14 @@ function calculateMove() {
           player1Stats.name
         }!`
       );
-      player1HealthPar.style.width = calculatePercentage(
+      player1HealthBar.style.width = calculatePercentage(
         player1.health,
         player1Stats.maxHealth
       );
+      player2Model.classList.add("move-left");
+      setTimeout(() => {
+        player2Model.classList.remove("move-left");
+      }, 500);
     }
     currentPlayer = currentPlayer === player1 ? player2 : player1;
     if (player1.health <= 0 || player2.health <= 0) {

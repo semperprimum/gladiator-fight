@@ -190,7 +190,6 @@ body.center {
   cursor: pointer;
 }
 
-
 .stat-button-increment:hover,
 .stat-button-decrement:hover {
   filter: invert(1);
@@ -209,7 +208,7 @@ body.center {
 .player-name {
   font-size: 2.5rem;
   color: var(--clr-light);
-  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.50);
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .player-name[data-right="true"] {
@@ -264,4 +263,40 @@ body.center {
   position: absolute;
   right: 2.5rem;
   bottom: 2.5rem;
+}
+
+.move-right {
+  animation-name: moveRight;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+}
+
+.move-left {
+  animation-name: moveLeft;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-15rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(15rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
