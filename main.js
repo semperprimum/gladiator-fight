@@ -16,9 +16,16 @@ const player1HealthBar = document.getElementById("health-bar-1");
 const player2HealthBar = document.getElementById("health-bar-2");
 const player1Model = document.getElementById("char1");
 const player2Model = document.getElementById("char2");
+const playAgainBtn = document.getElementById("play-again");
+const endScreen = document.getElementById("end-screen");
+const modal = document.getElementById("modal");
+const showActionsBtn = document.getElementById("show-actions");
+const closeModalBtn = document.getElementById("modal-close");
+const modalList = document.getElementById("modal-list");
 
 // State
 let isGameOver = false;
+const actions = [];
 
 // Constants for base stats
 const BASE_HEALTH = 100;
@@ -67,6 +74,18 @@ nextActionButton.addEventListener("click", () => {
   calculateMove();
 });
 
+playAgainBtn.addEventListener("click", () => {
+  location.reload();
+});
+
+showActionsBtn.addEventListener("click", () => {
+  modal.style.display = "block";
+});
+
+closeModalBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
 // Utility functions
 function hideElement(el) {
   el.classList.add("hidden");
@@ -77,6 +96,7 @@ function showElement(el) {
 }
 function setAction(text) {
   action.innerText = text;
+  actions.push(text);
 }
 function calculatePercentage(part, whole) {
   const percentage = (part / whole) * 100;
@@ -182,7 +202,7 @@ function calculateMove() {
     setAction(
       `${
         currentPlayer === player1 ? player2Stats.name : player1Stats.name
-      } dodged the attack`
+      } увернулся от атаки!`
     );
   } else {
     // Calculate critical hit chance
@@ -191,6 +211,11 @@ function calculateMove() {
 
     if (criticalChance < currentPlayer.luck) {
       damage *= 2.5;
+      setAction(
+        `${
+          currentPlayer === player1 ? player1Stats.name : player2Stats.name
+        } наносит критический удар!`
+      );
     }
     damage *= 1 - defender.defense;
     if (currentPlayer === player1) {
@@ -199,9 +224,9 @@ function calculateMove() {
         player2.health = 0; // Ensure health does not go below 0
       }
       setAction(
-        `${player1Stats.name} dealt ${damage.toFixed(2)} damage to ${
+        `${player1Stats.name} нанес ${damage.toFixed(2)} урона ${
           player2Stats.name
-        }`
+        }!`
       );
       player2HealthBar.style.width = calculatePercentage(
         player2.health,
@@ -217,7 +242,7 @@ function calculateMove() {
         player1.health = 0; // Ensure health does not go below 0
       }
       setAction(
-        `${player2Stats.name} dealt ${damage.toFixed(2)} damage to ${
+        `${player2Stats.name} нанес ${damage.toFixed(2)} урона ${
           player1Stats.name
         }!`
       );
@@ -234,10 +259,22 @@ function calculateMove() {
     if (player1.health <= 0 || player2.health <= 0) {
       const winner =
         player1.health <= 0 ? player2Stats.name : player1Stats.name;
-      setAction(`${winner} wins the game!`);
+      setAction(`${winner} побеждает!`);
       isGameOver = true;
+      setTimeout(() => {
+        showEndScreen();
+        showActionsInModal();
+      }, 2500);
     }
   }
+}
+
+function showActionsInModal() {
+  actions.forEach((action) => {
+    const listItem = document.createElement("li");
+    listItem.innerText = action;
+    modalList.appendChild(listItem);
+  });
 }
 
 // Screen Display Functions
@@ -247,6 +284,7 @@ function showSetupScreen() {
   showElement(characterSetupScreen);
   hideElement(mainMenu);
   hideElement(fightingScreen);
+  hideElement(endScreen);
 }
 
 function showFightingScreen() {
@@ -276,4 +314,14 @@ function showFightingScreen() {
   hideElement(characterSetupScreen);
   hideElement(mainMenu);
   showElement(fightingScreen);
+  hideElement(endScreen);
+}
+
+function showEndScreen() {
+  body.classList.remove("center");
+  showElement(overlayDiv);
+  hideElement(characterSetupScreen);
+  hideElement(mainMenu);
+  hideElement(fightingScreen);
+  showElement(endScreen);
 }

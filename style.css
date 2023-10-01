@@ -120,11 +120,13 @@ body.center {
 }
 
 .btn {
+  display: block;
   background-color: var(--clr-primary);
   border: none;
   padding: 1.5rem 3rem;
   font-size: 2rem;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .btn:hover {
@@ -299,4 +301,53 @@ body.center {
   100% {
     transform: translateX(0);
   }
+}
+
+.end-screen-container {
+  padding-top: 2.5rem;
+}
+.player-won {
+  font-size: 3rem;
+  color: var(--clr-light);
+  text-align: center;
+}
+
+.btn#play-again {
+  margin-top: 6rem;
+  margin-inline: auto;
+}
+.btn#show-actions {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 2.5rem;
+}
+
+.modal {
+  position: fixed;
+  width: 50%;
+  height: 50%;
+  background-color: var(--clr-primary);
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  overflow: auto;
+  padding: 1rem;
+}
+.modal__close {
+  margin-left: auto;
+  display: block;
+  border: none;
+  background: none;
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+
+.modal__list {
+  margin: 0;
+  padding: 0;
+  list-style: decimal;
+}
+.modal__list > li {
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--clr-dark);
 }
