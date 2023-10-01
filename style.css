@@ -351,3 +351,32 @@ body.center {
   padding-block: 1rem;
   border-bottom: 1px solid var(--clr-dark);
 }
+
+footer {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  color: var(--clr-primary);
+  bottom: 1rem;
+  left: 0;
+}
+
+.gh-link {
+  position: relative;
+}
+.gh-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 100%;
+  height: 1px;
+  background-color: var(--clr-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 150ms ease;
+}
+.gh-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
