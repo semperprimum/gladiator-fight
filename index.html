@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GLADIATOR FIGHT!</title>
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Main JS File -->
+    <script src="./main.js" defer></script>
+
+    <!-- Google Fonts (Press Start 2P) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="center">
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
+    <main>
+      <!-- -->
+      <div class="starting-menu center" id="main-menu">
+        <h1 class="main-title">Гладиаторские Бои</h1>
+        <button class="btn" id="btn-main">НАЧАТЬ!</button>
+      </div>
+      <!-- -->
+      <div class="hidden character-setup" id="character-setup-screen">
+        <h1 class="main-title">Гладиаторские Бои</h1>
+        <div class="character-setup__wrapper">
+          <div class="character-setup__box">
+            <h2 class="character-setup__title">Гладиатор 1</h2>
+            <div class="character-setup__container">
+              <p class="points">Очки: <span class="points-count" id="points-player-1">10</span></p>
+              <input id="input-name-player1" class="input" type="text" placeholder="Имя..." />
+              <div class="stat-wrapper">
+                <p class="stat-name">Здоровье <span class="stat-number">0</span></p>
+                <div class="stat-buttons-wrapper">
+                  <button class="stat-button-increment">+</button>
+                  <button class="stat-button-decrement">-</button>
+                </div>
+              </div>
+              <div class="stat-wrapper">
+                <p class="stat-name">Сила <span class="stat-number">0</span></p>
+                <div class="stat-buttons-wrapper">
+                  <button class="stat-button-increment">+</button>
+                  <button class="stat-button-decrement">-</button>
+                </div>
+              </div>
+              <div class="stat-wrapper">
+                <p class="stat-name">Ловкость <span class="stat-number">0</span></p>
+                <div class="stat-buttons-wrapper">
+                  <button class="stat-button-increment">+</button>
+                  <button class="stat-button-decrement">-</button>
+                </div>
+              </div>
+              <div class="stat-wrapper">
+                <p class="stat-name">Удача <span class="stat-number">0</span></p>
+                <div class="stat-buttons-wrapper">
+                  <button class="stat-button-increment">+</button>
+                  <button class="stat-button-decrement">-</button>
+                </div>
+              </div>
+              <div class="stat-wrapper">
+                <p class="stat-name">Защита <span class="stat-number">0</span></p>
+                <div class="stat-buttons-wrapper">
+                  <button class="stat-button-increment">+</button>
+                  <button class="stat-button-decrement">-</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn" id="start-button">НАЧАТЬ!</button>
+          <div class="character-setup__box">
+            <h2 class="character-setup__title">Гладиатор 2</h2>
+            <div class="character-setup__container">
+              <p class="points">Очки: <span class="points-count" id="points-player-2">10</span></p>
+              <input id="input-name-player2" class="input" type="text" placeholder="Имя..." />
+              <div class="stat-wrapper">
+                <p class="stat-name">Здоровье <span class="stat-number">0</span></p>
+                <div class="stat-buttons-wrapper">
+                  <button class="stat-button-increment">+</button>
+                  <button class="stat-button-decrement">-</button>
+                </div>
+              </div>
+              <div class="stat-wrapper">
+                <p class="stat-name">Сила <span class="stat-number">0</span></p>
+                <div class="stat-buttons-wrapper">
+                  <button class="stat-button-increment">+</button>
+                  <button class="stat-button-decrement">-</button>
+                </div>
+              </div>
+              <div class="stat-wrapper">
+                <p class="stat-name">Ловкость <span class="stat-number">0</span></p>
+                <div class="stat-buttons-wrapper">
+                  <button class="stat-button-increment">+</button>
+                  <button class="stat-button-decrement">-</button>
+                </div>
+              </div>
+              <div class="stat-wrapper">
+                <p class="stat-name">Удача <span class="stat-number">0</span></p>
+                <div class="stat-buttons-wrapper">
+                  <button class="stat-button-increment">+</button>
+                  <button class="stat-button-decrement">-</button>
+                </div>
+              </div>
+              <div class="stat-wrapper">
+                <p class="stat-name">Защита <span class="stat-number">0</span></p>
+                <div class="stat-buttons-wrapper">
+                  <button class="stat-button-increment">+</button>
+                  <button class="stat-button-decrement">-</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- -->
+      <div class="hidden fighting-screen" id="fighting-screen">
+        <div class="health-container">
+          <div class="health__player">
+            <p class="player-name" id="player1-name">Leo</p>
+            <div class="health-bar">
+              <div class="current-health-bar" id="health-bar-1"></div>
+            </div>
+          </div>
+          <div class="health__player">
+            <p class="player-name" id="player2-name" data-right="true">Ryu</p>
+            <div class="health-bar">
+              <div class="current-health-bar ml-auto" id="health-bar-2"></div>
+            </div>
+          </div>
+        </div>
+        <p class="current-action" id="action">Бой начинается!</p>
+
+        <div class="characters-container">
+          <img class="character" src="./assets/images/character1.png" alt="">
+          <img class="character" src="./assets/images/character2.png" alt="">
+        </div>
+
+        <button class="btn" id="next-action">NEXT!</button>
+      </div>
+    </main>
+  </body>
+</html>

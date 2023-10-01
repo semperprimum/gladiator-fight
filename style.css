@@ -1,0 +1,267 @@
+:root {
+  --clr-primary: #ff9e2d;
+  --clr-dark: #000;
+  --clr-light: #fff;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-image: url("/assets/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  font-family: "Press Start 2P", serif;
+}
+
+body.center {
+  display: grid;
+  place-items: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0 0 0 0;
+  background-color: black;
+  opacity: 0.8;
+  z-index: -50;
+}
+
+.starting-menu {
+  display: grid;
+  place-items: center;
+}
+
+.main-title {
+  color: var(--clr-primary);
+  text-transform: uppercase;
+  font-size: 4.625rem;
+  margin-bottom: 4.5rem;
+  text-align: center;
+}
+
+.btn {
+  background-color: var(--clr-primary);
+  border: none;
+  padding: 1.5rem 3rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(0.8);
+}
+
+.hidden {
+  display: none;
+}
+
+.character-setup__title {
+  color: var(--clr-light);
+  text-align: center;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+.character-setup__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: 5.5rem;
+}
+.points {
+  color: var(--clr-light);
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.character-setup__container {
+  display: grid;
+  gap: 1rem;
+  background-color: var(--clr-primary);
+  padding: 2rem 2.5rem;
+  max-width: fit-content;
+  margin-inline: auto;
+  margin-top: 2.5rem;
+}
+
+.input {
+  padding: 1.2rem;
+  border: none;
+  background-color: var(--clr-dark);
+  color: var(--clr-light);
+  outline: none;
+}
+
+.stat-wrapper {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-name {
+  color: var(--clr-light);
+}
+
+.stat-button-increment,
+.stat-button-decrement {
+  background: none;
+  color: var(--clr-light);
+  border: none;
+  cursor: pointer;
+}
+
+
+.stat-button-increment:hover,
+.stat-button-decrement:hover {
+  filter: invert(1);
+}
+
+.health-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 2.5rem 6.5rem 0;
+}
+
+.health__player {
+  width: 28.125rem;
+}
+
+.player-name {
+  font-size: 2.5rem;
+  color: var(--clr-light);
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.50);
+}
+
+.player-name[data-right="true"] {
+  text-align: right;
+}
+
+.health-bar {
+  width: 28.125rem;
+  height: 2.8125rem;
+  outline: 2px solid var(--clr-light);
+  background-color: var(--clr-dark);
+}
+
+.current-health-bar {
+  height: 100%;
+  background-color: yellow;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+#health-bar-1 {
+  width: 100%;
+}
+
+#health-bar-2 {
+  width: 100%;
+}
+
+.current-action {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--clr-light);
+  font-size: 2rem;
+}
+
+.characters-container {
+  display: flex;
+  position: absolute;
+  gap: 25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 4rem;
+}
+.character {
+  max-height: 35rem;
+  max-width: fit-content;
+}
+
+#next-action {
+  position: absolute;
+  right: 2.5rem;
+  bottom: 2.5rem;
+}
