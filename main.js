@@ -22,6 +22,7 @@ const modal = document.getElementById("modal");
 const showActionsBtn = document.getElementById("show-actions");
 const closeModalBtn = document.getElementById("modal-close");
 const modalList = document.getElementById("modal-list");
+const endScreenWinner = document.getElementById("end-screen-winner");
 
 // State
 let isGameOver = false;
@@ -260,6 +261,7 @@ function calculateMove() {
       const winner =
         player1.health <= 0 ? player2Stats.name : player1Stats.name;
       setAction(`${winner} побеждает!`);
+      endScreenWinner.innerText = `${winner} побеждает!`;
       isGameOver = true;
       setTimeout(() => {
         showEndScreen();

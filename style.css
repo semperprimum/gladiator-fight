@@ -310,6 +310,7 @@ body.center {
   font-size: 3rem;
   color: var(--clr-light);
   text-align: center;
+  text-transform: uppercase;
 }
 
 .btn#play-again {
