@@ -324,6 +324,7 @@ body.center {
 }
 
 .modal {
+  display: hidden;
   position: fixed;
   width: 50%;
   height: 50%;
