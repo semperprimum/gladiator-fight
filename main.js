@@ -199,12 +199,14 @@ function calculateMove() {
   const defender = currentPlayer === player1 ? player2 : player1;
   // Check if defender dodged the attack
   const dodgeChance = Math.random();
-  if (dodgeChance <= currentPlayer.agility) {
+  if (dodgeChance <= defender.agility) {
     setAction(
       `${
         currentPlayer === player1 ? player2Stats.name : player1Stats.name
       } увернулся от атаки!`
     );
+    currentPlayer = currentPlayer === player1 ? player2 : player1;
+    return;
   } else {
     // Calculate critical hit chance
     const criticalChance = Math.random();
