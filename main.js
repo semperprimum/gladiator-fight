@@ -221,6 +221,7 @@ function calculateMove() {
     damage *= 1 - defender.defense;
     if (currentPlayer === player1) {
       player2.health -= damage;
+      document.getElementById("fastpunch").play();
       if (player2.health <= 0) {
         player2.health = 0; // Ensure health does not go below 0
       }
@@ -239,6 +240,7 @@ function calculateMove() {
       }, 500);
     } else if (currentPlayer === player2) {
       player1.health -= damage;
+      document.getElementById("quickhit").play();
       if (player1.health <= 0) {
         player1.health = 0; // Ensure health does not go below 0
       }
@@ -263,6 +265,7 @@ function calculateMove() {
       setAction(`${winner} побеждает!`);
       endScreenWinner.innerText = `${winner} побеждает!`;
       isGameOver = true;
+      document.getElementById("victory").play();
       setTimeout(() => {
         showEndScreen();
         showActionsInModal();
