@@ -151,7 +151,6 @@ buttons.forEach((button) => {
       .trim();
     const playerName = player === "Гладиатор 1" ? "player1" : "player2";
     const increment = event.target.classList.contains("stat-button-increment");
-    console.log(increment);
     switch (statName) {
       case "Здоровье":
         updateStat(playerName, "health", increment);
