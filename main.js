@@ -122,7 +122,7 @@ function updateStat(player, stat, increment) {
   if (increment && stats.points > 0) {
     stats[stat]++;
     stats.points--;
-  } else if (!increment && stats.points > 0) {
+  } else if (!increment && stats.points < 10) {
     stats[stat]--;
     stats.points++;
   }
