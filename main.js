@@ -38,7 +38,7 @@ const HEALTH_PER_POINT = 10;
 const STRENGTH_PER_POINT = 3;
 const AGILITY_PER_POINT = 0.05;
 const LUCK_PER_POINT = 0.05;
-const DEFENSE_PER_POINT = -0.05;
+const DEFENSE_PER_POINT = 0.05;
 
 // Player Statistics
 const player1Stats = {
